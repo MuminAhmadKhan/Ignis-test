@@ -1,0 +1,28 @@
+{% extends "event/layout.html" %}
+{% block body %}
+<div class="container row my-3">
+{% for event in events %}
+<div class="col-md-4"> 
+<div class="card" style="width: 18rem;">
+    <img src="{{ event.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ event.event_name }}</h5>
+      <p class="card-text">{{event.date}} at {{event.time}}</p>
+      <p class="card-text">{{event.location}}</p>
+      <div id="id" hidden>{{event.id}}</div>
+      <div id="liked" hidden>{{event.is_liked}}</div>
+      {% if  event.is_liked %}
+        <span id = 'heart'><i class="fa fa-heart liked" aria-hidden="true" ></i> </span>
+    {% else %}
+        <span id = 'heart'><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
+        
+    {% endif %}
+      
+    </div>
+    </div>
+  </div>
+
+
+{% endfor %}
+</div>
+{% endblock %}
